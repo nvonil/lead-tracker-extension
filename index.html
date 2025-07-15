@@ -3,25 +3,32 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Lead Tracker Extension | @novnil</title>
+        <title>Lead Tracker Extension | @nvonil</title>
 
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div class="container">
-            <div class="header-container">
+        <main>
+            <header class="header-container">
                 <p class="header-title">Lead Tracker</p>
-                <p class="header-text">Paste or add tab</p>
-            </div>
-            <input type="text" class="input" />
+                <p class="header-subtitle">Paste or add tab</p>
+            </header>
+
+            <input type="text" class="lead-input" />
+
             <div class="buttons-container">
-                <div class="add-tab-container">
+                <div class="controls-container">
                     <button class="add-button">Add</button>
-                    <button class="tab-button">Save Tab</button>
+                    <button class="save-button">Save Tab</button>
                 </div>
-                <button class="delete-button">Delete All</button>
+                <button class="clear-button">Delete All</button>
             </div>
-        </div>
+
+            <span class="divider"></span>
+
+            <ul class="leads-container"></ul>
+        </main>
+
         <script src="script.js"></script>
     </body>
 </html>
