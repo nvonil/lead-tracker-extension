@@ -10,6 +10,17 @@ const divider = document.querySelector(".divider");
 
 const leadsContainer = document.querySelector(".leads-container");
 
+const savedLeads = JSON.parse(localStorage.getItem("myLeads"));
+
+if (savedLeads) {
+    leadsList = savedLeads;
+
+    divider.style.display = "block";
+    leadsContainer.style.display = "flex";
+
+    render();
+}
+
 addButton.addEventListener("click", function () {
     if (leadInput.value.trim() === "") {
         alert("Please enter a lead.");
@@ -19,9 +30,13 @@ addButton.addEventListener("click", function () {
 
         divider.style.display = "block";
         leadsContainer.style.display = "flex";
+
+        localStorage.setItem("myLeads", JSON.stringify(leadsList));
         render();
     }
 });
+
+saveButton.addEventListener("click", function () {});
 
 clearButton.addEventListener("dblclick", function () {
     if (leadsList.length === 0) {
