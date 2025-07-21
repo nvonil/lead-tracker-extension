@@ -43,6 +43,8 @@ clearButton.addEventListener("dblclick", function () {
         alert("No leads to delete.");
     } else {
         leadsList = [];
+        localStorage.clear();
+
         divider.style.display = "none";
         leadsContainer.style.display = "none";
         render();
