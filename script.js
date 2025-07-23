@@ -7,17 +7,13 @@ const saveButton = document.querySelector(".save-button");
 const clearButton = document.querySelector(".clear-button");
 
 const divider = document.querySelector(".divider");
-
 const leadsContainer = document.querySelector(".leads-container");
 
 const savedLeads = JSON.parse(localStorage.getItem("myLeads"));
-
 if (savedLeads) {
     leadsList = savedLeads;
 
-    divider.style.display = "block";
-    leadsContainer.style.display = "flex";
-
+    updateVisibility();
     render();
 }
 
@@ -27,11 +23,9 @@ addButton.addEventListener("click", function () {
     } else {
         leadsList.push(leadInput.value);
         leadInput.value = "";
-
-        divider.style.display = "block";
-        leadsContainer.style.display = "flex";
-
         localStorage.setItem("myLeads", JSON.stringify(leadsList));
+
+        updateVisibility();
         render();
     }
 });
@@ -45,9 +39,16 @@ clearButton.addEventListener("dblclick", function () {
         leadsList = [];
         localStorage.clear();
 
-        divider.style.display = "none";
-        leadsContainer.style.display = "none";
+        updateVisibility();
         render();
+    }
+});
+
+leadsContainer.addEventListener("click", function (e) {
+    const deleteIcon = e.target.closest(".delete-icon");
+    if (deleteIcon) {
+        const index = deleteIcon.dataset.index;
+        deleteLead(index);
     }
 });
 
@@ -66,7 +67,8 @@ function render() {
                                 stroke-width="2"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                class="lucide lucide-x-icon lucide-x"
+                                class="lucide lucide-x-icon lucide-x delete-icon"
+                                data-index="${i}"
                                 >
                                 <path d="M18 6 6 18" />
                                 <path d="m6 6 12 12" />
@@ -74,4 +76,22 @@ function render() {
                          </div>`;
     }
     leadsContainer.innerHTML = renderedLeads;
+}
+
+function deleteLead(index) {
+    leadsList.splice(index, 1);
+    localStorage.setItem("myLeads", JSON.stringify(leadsList));
+
+    updateVisibility();
+    render();
+}
+
+function updateVisibility() {
+    if (leadsList.length === 0) {
+        divider.style.display = "none";
+        leadsContainer.style.display = "none";
+    } else {
+        divider.style.display = "block";
+        leadsContainer.style.display = "flex";
+    }
 }
