@@ -71,6 +71,7 @@ main {
     padding: 0.5rem 0 0.5rem 1rem;
 
     color: var(--primary-text);
+    font-family: "Poppins", sans-serif;
     font-size: 0.9rem;
     font-weight: 300;
     outline: none;
