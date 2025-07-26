@@ -63,7 +63,7 @@ leadsContainer.addEventListener("click", function (e) {
 function render() {
     let renderedLeads = "";
     for (let i = 0; i < leadsList.length; i++) {
-        renderedLeads += `<div class="lead-item">
+        renderedLeads += `<li class="lead-item">
                             <span class="lead-link" data-url="${leadsList[i]}">${leadsList[i]}</span>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ function render() {
                                 <path d="M18 6 6 18" />
                                 <path d="m6 6 12 12" />
                             </svg>
-                         </div>`;
+                         </li>`;
     }
     leadsContainer.innerHTML = renderedLeads;
 
