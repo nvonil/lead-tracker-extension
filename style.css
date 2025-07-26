@@ -150,7 +150,7 @@ main {
 .leads-container {
     display: none;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .lead-item {
@@ -162,6 +162,26 @@ main {
 .lead-link {
     color: var(--primary-text);
     cursor: pointer;
+
+    position: relative;
+}
+
+.lead-link::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+
+    width: 0%;
+    height: 1px;
+
+    background-color: var(--primary-text);
+
+    transition: all 0.3s;
+}
+
+.lead-link:hover::after {
+    width: 100%;
 }
 
 .lead-item svg {
