@@ -42,7 +42,6 @@ main {
 
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     gap: 0.5rem;
 }
 
@@ -149,8 +148,6 @@ main {
 /* Leads */
 
 .leads-container {
-    color: var(--primary-text);
-
     display: none;
     flex-direction: column;
     gap: 0.5rem;
@@ -162,9 +159,9 @@ main {
     align-items: center;
 }
 
-.lead-item a {
+.lead-link {
     color: var(--primary-text);
-    text-decoration: none;
+    cursor: pointer;
 }
 
 .lead-item svg {
