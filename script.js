@@ -30,7 +30,15 @@ addButton.addEventListener("click", function () {
     }
 });
 
-saveButton.addEventListener("click", function () {});
+saveButton.addEventListener("click", function () {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        leadsList.push(tabs[0].url);
+        localStorage.setItem("myLeads", JSON.stringify(leadsList));
+
+        updateVisibility();
+        render();
+    });
+});
 
 clearButton.addEventListener("dblclick", function () {
     if (leadsList.length === 0) {
