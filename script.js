@@ -61,10 +61,10 @@ leadsContainer.addEventListener("click", function (e) {
 });
 
 function render() {
-    renderedLeads = "";
+    let renderedLeads = "";
     for (let i = 0; i < leadsList.length; i++) {
         renderedLeads += `<div class="lead-item">
-                            <a href="${leadsList[i]}">${leadsList[i]}</a>
+                            <span class="lead-link" data-url="${leadsList[i]}">${leadsList[i]}</span>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -84,6 +84,14 @@ function render() {
                          </div>`;
     }
     leadsContainer.innerHTML = renderedLeads;
+
+    const leadLinks = document.querySelectorAll(".lead-link");
+    leadLinks.forEach(function (e) {
+        e.addEventListener("click", function () {
+            const url = e.dataset.url;
+            chrome.tabs.create({ url });
+        });
+    });
 }
 
 function deleteLead(index) {
