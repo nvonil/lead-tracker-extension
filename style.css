@@ -68,7 +68,7 @@ main {
     border-radius: 1rem;
 
     margin-bottom: 0.5rem;
-    padding: 0.375rem 0 0.375rem 1rem;
+    padding: 0.375rem 1rem;
 
     color: var(--primary-text);
     font-family: "Poppins", sans-serif;
@@ -164,25 +164,18 @@ main {
     color: var(--primary-text);
     cursor: pointer;
 
-    position: relative;
-}
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
-.lead-link::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-
-    width: 0%;
-    height: 1px;
-
-    background-color: var(--primary-text);
+    border-bottom: 1px solid transparent;
 
     transition: all 0.3s;
 }
 
-.lead-link:hover::after {
-    width: 100%;
+.lead-link:hover {
+    border-bottom: 1px solid var(--primary-color);
 }
 
 .lead-item svg {
