@@ -64,7 +64,7 @@ function render() {
     let renderedLeads = "";
     for (let i = 0; i < leadsList.length; i++) {
         renderedLeads += `<li class="lead-item">
-                            <span class="lead-link" data-url="${leadsList[i]}">${leadsList[i]}</span>
+                            <span class="lead-link" data-url="${leadsList[i]}" title="${leadsList[i]}">${leadsList[i]}</span>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
