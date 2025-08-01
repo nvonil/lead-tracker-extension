@@ -1,7 +1,7 @@
 # Lead Tracker Extension
 
-This project is a Chrome extension for saving and managing leads (URLs), built with **HTML**, **CSS**, and **JavaScript**.
+This project is a Chrome extension for saving and managing website leads, built with **HTML**, **CSS**, and **JavaScript**.
 
-- Demonstrates structure, styling, and JavaScript fundamentals
-- Covers front-end concepts such as layout, interactivity, and data handling
-- Uses DOM manipulation, event listeners, and local storage
+- Demonstrates core front-end fundamentals and Chrome extension structure
+- Enables users to add and remove leads through the interface
+- Utilizes browser storage to keep leads after closing or refreshing
